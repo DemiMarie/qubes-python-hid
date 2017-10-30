@@ -4,12 +4,20 @@ Uploaders: Tristan Seligmann <mithrandi@debian.org>
 Section: python
 Priority: optional
 Homepage: https://github.com/trezor/cython-hidapi
-Build-Depends: python-all-dev, debhelper (>=7), dh-python, cython, libhidapi-dev, libusb-1.0-0-dev, libudev-dev
+Build-Depends:
+ python-all-dev,
+ debhelper (>=9),
+ dh-python,
+ cython,
+ libhidapi-dev,
+ libusb-1.0-0-dev,
+ libudev-dev,
 Standards-Version: 3.9.6
 
 Package: python-hid
 Architecture: any
 Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends}
+Provides: ${python:Provides}
 Description: cython interface to hidapi
  This has been tested with:
  .
