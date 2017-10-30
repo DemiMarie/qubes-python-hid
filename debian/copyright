@@ -1,0 +1,21 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: cython-hidapi
+Source: https://github.com/trezor/cython-hidapi
+
+Files: *
+Copyright: 2010-2014 Gary Bishop <gb@cs.unc.edu>, Pavol Rusnak <stick@gk2.sk>
+License: GPL-3+
+
+Files: hidapi/*
+Copyright: 2009 Alan Ott <alan@signal11.us>
+License: GPL-3+
+
+Files: debian/*
+Copyright: 2014-2015 Richard Ulrich <richi@paraeasy.ch>
+License: GPL-3+
+
+License: GPL-3+
+ On Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+

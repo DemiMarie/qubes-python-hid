@@ -1,0 +1,53 @@
+Description: use the libhidapi binaries already in debian
+ Rather than using the c sources delivered with the tarball, use the 
+ binary hidapi libs distributed with debian.
+ .
+ python-hidapi (0.7.99.6-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.6.0+git
+   * Initial release. (Closes: #762920)
+Author: Richard Ulrich <richi@paraeasy.ch>
+Bug-Debian: https://bugs.debian.org/762920
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- python-hidapi-0.7.99.6.orig/setup.py
++++ python-hidapi-0.7.99.6/setup.py
+@@ -6,21 +6,21 @@ import os
+ import sys
+ 
+ hidapi_topdir = os.path.join(os.getcwd(), 'hidapi')
+-hidapi_include = os.path.join(hidapi_topdir, 'hidapi')
++hidapi_include = '/usr/include/hidapi'
+ def hidapi_src(platform):
+     return os.path.join(hidapi_topdir, platform, 'hid.c')
+ 
+ if sys.platform.startswith('linux'):
+     modules = [
+         Extension('hid',
+-                  sources = ['hid.pyx', 'chid.pxd', hidapi_src('libusb')],
++                  sources = ['hid.pyx', 'chid.pxd'],
+                   include_dirs = [hidapi_include, '/usr/include/libusb-1.0'],
+-                  libraries = ['usb-1.0', 'udev', 'rt'],
++                  libraries = ['usb-1.0', 'udev', 'rt', 'hidapi-libusb'],
+         ),
+         Extension('hidraw',
+-                  sources = ['hidraw.pyx', hidapi_src('linux')],
++                  sources = ['hidraw.pyx'],
+                   include_dirs = [hidapi_include],
+-                  libraries = ['udev', 'rt'],
++                  libraries = ['udev', 'rt', 'hidapi-hidraw'],
+         )
+     ]
+ 

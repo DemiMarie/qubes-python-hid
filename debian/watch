@@ -1,0 +1,5 @@
+# watch control file for uscan
+version=3
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/python-hidapi-$1\.tar\.gz/,\
+uversionmangle=s/(\d+\.\d+\.\d+)\-(\d)/$1.$2/ \
+http://pypi.debian.net/hidapi/hidapi-(.+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
