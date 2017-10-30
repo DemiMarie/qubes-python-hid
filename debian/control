@@ -9,10 +9,31 @@ Build-Depends:
  debhelper (>=9),
  dh-python,
  cython,
+ cython3,
  libhidapi-dev,
  libusb-1.0-0-dev,
  libudev-dev,
+ python3-all,
+ python3-all-dev
 Standards-Version: 3.9.6
+
+Package: python3-hid
+Architecture: any
+Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends}
+Provides: ${python3:Provides}
+Description: cython3 interface to hidapi
+ This has been tested with:
+ .
+ * the PIC18F4550 on the development board from CCS with their example program.
+ * the Fine Offset WH3081 Weather Station.
+ .
+ It works on Linux, Windows XP and OS X.
+ .
+ HIDAPI is a multi-platform library which allows an application to interface
+ with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and Mac
+ OS X.  HIDAPI can be either built as a shared library (.so or .dll) or
+ can be embedded directly into a target application by adding a single source
+ file (per platform) and a single header.
 
 Package: python-hid
 Architecture: any
