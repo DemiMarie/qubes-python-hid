@@ -1,3 +1,10 @@
+python-hidapi (0.7.99.6-3) unstable; urgency=low
+
+  * Include python3 package
+  * Convert to pybuild
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Tue, 31 Oct 2017 01:27:52 +0100
+
 python-hidapi (0.7.99.6-2) unstable; urgency=low
 
   * Rename binary package to python-hid; this is the correct name as the
